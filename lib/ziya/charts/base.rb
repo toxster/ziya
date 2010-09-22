@@ -238,7 +238,7 @@ module Ziya::Charts
     def to_s( options={} )
       @partial = options[:partial] || false
       out     = ""
-      @xml = Builder::XmlMarkup.new( :target => out )
+      @xml = ::Builder::XmlMarkup.new( :target => out )
       # Forces utf8 encoding on xml stream
       @xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
       @xml.chart do
