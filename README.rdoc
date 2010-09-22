@@ -118,13 +118,16 @@ like applications. Your manager will love you for it !!
    
         # Defines the necessary tag to embed a flash movie in your html page.
         # This will callback to your controller to fetch the necessary xml.
-        <%= ziya_chart load_chart_url -%>
+		# note the raw, this is due to rails 3 changes. 
+		# A more proper way to handle this would be to return the string a html_safe.
+        <%= raw ziya_chart blee_load_chart_url -%>
    
    5 - Create a named route
    
       config/routes.rb:
       
-       map.load_chart '/blee/load_chart', :controller => 'blee', :action => 'load_chart'
+       match '/blee/load_chart',  :to => 'blee#load_chart'
+	   resources :blee
    
 == Styling a chart
 
